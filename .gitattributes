@@ -1,0 +1,4 @@
+input/bangalore_delivery.xlsx filter=lfs diff=lfs merge=lfs -text
+input/bangalore_dine_out.xlsx filter=lfs diff=lfs merge=lfs -text
+input/bangalore_nightlife.xlsx filter=lfs diff=lfs merge=lfs -text
+db.sqlite3 filter=lfs diff=lfs merge=lfs -text
