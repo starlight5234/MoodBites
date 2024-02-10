@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import css from './CategorySelectionComp.module.css'
 
-import { orderOnlinePage, diningOutPage, proAndProPlusPage, nightLifePage } from '../../../helpers/constants'
+import { orderOnlinePage, diningOutPage, proAndProPlusPage, nightLifePage } from '../../../Data/Constants'
 
 let CategorySelectionComp = ({ imgSrc, imgSrc2, title, color, isActive, setIsActive, comp }) => {
 
@@ -24,7 +24,7 @@ let CategorySelectionComp = ({ imgSrc, imgSrc2, title, color, isActive, setIsAct
         });
 
         let param = comp === "delivery" ? orderOnlinePage : comp === "dinning" ? diningOutPage : nightLifePage;
-        navigate('/show-case/?page=' + param);;
+        navigate(param);;
     }
 
     return <div className={outerClass} onClick={changeState}>
