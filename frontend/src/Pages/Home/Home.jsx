@@ -2,7 +2,8 @@ import React from 'react'
 import HomePageBanner from './HomePageBanner/HomePageBanner'
 import TrendingNearU from './TrendingNearU/TrendingNearU'
 import Cities from './Cities/Cities'
-import CollectionCard from '../../Components/Cards/CollectionCard'
+import Collection from './Collections/Collection'
+import PopularAround from './PopularAround/PopularAround'
 
 const Home = () => {
     return (
@@ -10,7 +11,8 @@ const Home = () => {
             <HomePageBanner />
             <TrendingNearU />
             <Cities />
-            <CollectionCard />
+            <Collection />
+            <PopularAround />
         </>
     )
 }

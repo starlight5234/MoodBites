@@ -1,6 +1,6 @@
 import React from 'react'
 
-import nextIcon from '/icons/next.png'
+import nextIcon from '../../../Assets/icons/next.png'
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
