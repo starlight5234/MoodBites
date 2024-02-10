@@ -1,6 +1,6 @@
 import React from 'react'
 
-import prevIcon from '/icons/prev.png'
+import prevIcon from '../../../Assets/icons/prev.png'
 
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
