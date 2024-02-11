@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-sbulx@yj480-anodb%8ph(1fwu7z^rtbo=k_rt=ai+chfz^!^1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['peaceful-sea-41643.pktriot.net']
+ALLOWED_HOSTS = ['peaceful-sea-41643.pktriot.net', 'red-waterfall-86034.pktriot.net']
 
 
 # Application definition
@@ -57,6 +57,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React development server
     "http://localhost:3001",  # React development server
     "https://peaceful-sea-41643.pktriot.net",
+    "https://red-waterfall-86034.pktriot.net"
 ]
 
 ROOT_URLCONF = 'MoodBites.urls'
