@@ -15,7 +15,7 @@ def api_root(request):
     return JsonResponse({'message': 'Welcome to the API!'})
 
 class reqRes(APIView):
-    def get(self, request):
+    def post(self, request):
         try:
             # Access the "set" value from the request JSON
             print(request.data)
