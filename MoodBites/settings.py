@@ -55,6 +55,8 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React development server
+    "http://localhost:3001",  # React development server
+    "https://peaceful-sea-41643.pktriot.net",
 ]
 
 ROOT_URLCONF = 'MoodBites.urls'
