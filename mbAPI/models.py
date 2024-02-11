@@ -1,14 +1,21 @@
 from django.db import models
 
 # Create your models here.
-class RestaurantRequestModel(models.Model):
-    url = models.URLField()
-    name = models.CharField(max_length=255)
-    rest_type = models.CharField(max_length=255)
-    rate = models.DecimalField(max_digits=3, decimal_places=2)
-    cost = models.DecimalField(max_digits=6, decimal_places=2)
+class Restaurant(models.Model):
+    index = models.AutoField(primary_key=True)
+    url = models.URLField(max_length=200)
+    name = models.CharField(max_length=100)
+    online_order = models.BooleanField(default=False)
+    book_table = models.BooleanField(default=False)
+    rate = models.FloatField()
     votes = models.IntegerField()
-    city = models.CharField(max_length=255)
+    location = models.CharField(max_length=100)
+    rest_type = models.CharField(max_length=100, blank=True, null=True, default='')
+    dish_liked = models.CharField(max_length=200, blank=True, null=True, default='')
+    cuisines = models.CharField(max_length=200, blank=True, null=True, default='')
+    cost = models.IntegerField(default=0)
+    type = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

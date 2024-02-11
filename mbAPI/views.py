@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from django.core.serializers import serialize
 from django.http import JsonResponse
 
-from mbAPI.models import RestaurantRequestModel
+from mbAPI.models import Restaurant
 from mbAPI.serializers import RestaurantRequestSerializer
 
 # Create your views here.
@@ -24,7 +24,7 @@ class reqRes(APIView):
             search_limit = card_count * (index_value - 1)
             
             # Perform a database query
-            queryset = RestaurantRequestModel.objects.order_by('id')[search_limit:search_limit + card_count]
+            queryset = Restaurant.objects.order_by('index')[search_limit:search_limit + card_count]
             
             # Serialize the data
             serializer = RestaurantRequestSerializer(queryset, many=True)
