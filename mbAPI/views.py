@@ -19,11 +19,12 @@ class reqRes(APIView):
         try:
             # Access the "set" value from the request JSON
             print(request.data)
-            set_value = int(request.data.get("set", 0))
-            search_limit = 9 * set_value
+            index_value = int(request.data.get("index", 0))
+            card_count = 9
+            search_limit = card_count * (index_value - 1)
             
             # Perform a database query
-            queryset = RestaurantRequestModel.objects.all()[:search_limit]
+            queryset = RestaurantRequestModel.objects.order_by('id')[search_limit:search_limit + card_count]
             
             # Serialize the data
             serializer = RestaurantRequestSerializer(queryset, many=True)
@@ -31,4 +32,4 @@ class reqRes(APIView):
             # Return the serialized data
             return Response(serializer.data, status=status.HTTP_200_OK)
         except ValueError:
-            return Response({"error": "Invalid 'set' value in the request JSON"}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "Invalid 'index' value in the request JSON"}, status=status.HTTP_400_BAD_REQUEST)
