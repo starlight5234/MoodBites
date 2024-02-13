@@ -10,8 +10,10 @@ from django.http import JsonResponse
 from mbAPI.models import Restaurant
 from mbAPI.serializers import RestaurantRequestSerializer
 
-import os
+import os, threading
 from datetime import datetime
+
+from .helpers import pickleThread
 
 # Create your views here.
 def api_root(request):
@@ -40,26 +42,37 @@ class reqRes(APIView):
 class PickleFileUploadView(APIView):
     def post(self, request, *args, **kwargs):
         try:
-            # Access the file using request.FILES['file']
-            uploaded_file = request.FILES['file']
+            excel_file = ""
 
-            # Create a "pickle" folder if it doesn't exist
-            pickle_folder = os.path.join('media', 'pickle')
-            os.makedirs(pickle_folder, exist_ok=True)
+            # Access all files using request.FILES
+            for file_name, uploaded_file in request.FILES.items():
+                # Generate a timestamp to use in the filename
+                timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
-            # Generate a timestamp to use in the filename
-            timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+                # Create a "pickle" folder if it doesn't exist
+                pickle_folder = os.path.join('media', 'pickleUpload', timestamp)
+                os.makedirs(pickle_folder, exist_ok=True)
 
-            # Create the filename with the timestamp
-            filename = f"{uploaded_file.name}-{timestamp}"
+                # Create the filename with the timestamp and original file name
+                filename = f"{uploaded_file.name}"
 
-            # Build the full path to save the file
-            file_path = os.path.join(pickle_folder, filename)
+                if ".xlsx" in filename:
+                    excel_file = filename
 
-            # Save the file to the server
-            with open(file_path, 'wb') as file:
-                for chunk in uploaded_file.chunks():
-                    file.write(chunk)
+                # Build the full path to save the file
+                file_path = os.path.join(pickle_folder, filename)
+
+                # Save the file to the server
+                with open(file_path, 'wb') as file:
+                    for chunk in uploaded_file.chunks():
+                        file.write(chunk)
+
+            if excel_file:
+                # Run a thread after each file upload is successful
+                process_thread = threading.Thread(target=pickleThread.process_file_thread, args=(excel_file,))
+                process_thread.daemon = True
+                process_thread.start()
+                process_thread.join()
 
             # Respond with a success message
             return Response({'message': 'File uploaded successfully.'}, status=status.HTTP_200_OK)
