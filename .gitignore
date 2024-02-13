@@ -30,3 +30,5 @@ frontend/yarn-error.log*
 
 # any data sent to server
 media/**
+**/migrations
+migrations/**
