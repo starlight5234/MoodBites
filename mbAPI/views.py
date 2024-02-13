@@ -92,54 +92,18 @@ class reqRes(APIView):
             # Search for city
             city = filters.get("city")
             if city:
-                # query |= Q(city__icontains=city)
                 queryset = queryset.filter(city__icontains=city)
-                print("City", queryset)
             else:
                 print("No city filter")
             
             # Search for rating
             rating = filters.get("rating")
             if rating:
-                # query |= Q(rate__gte=rating)
                 queryset = queryset.filter(rate__gte=rating)
-                print("Rating", queryset)
             else:
                 print("No rating filter")
 
-            '''
-            @Bug These two field are automatically being set to False
-
-            # Search if Online order
-            order = filters.get("order")
-            if order:
-                # query |= Q(online_order=order)
-                for r in queryset:
-                    print(r, r.online_order)
-                queryset = queryset.filter(online_order=order)
-                print("Order", queryset)
-            else:
-                print("No order filter")
-
-            # Search if online booking of table
-            booking = filters.get("booking")
-            if booking:
-                # query |= Q(book_table=booking)
-                queryset = queryset.filter(book_table=booking)
-                print("Booking", queryset)
-            else:
-                print("No booking filter")
-            '''
-
             pricing = filters.get("pricing")
-            # if pricing:
-            #     match pricing:
-            #         case "standard":
-            #             query |= Q(cost__lte=500)
-            #         case "premium":
-            #             query |= Q(cost__lte=1000) & ~Q(cost__lte=500)
-            #         case "luxury":
-            #             query |= Q(cost__gte=1000)
             if pricing:
                 if pricing == 'standard':
                     queryset = queryset.filter(cost__lt=500)
@@ -147,13 +111,10 @@ class reqRes(APIView):
                     queryset = queryset.filter(cost_gte=500, cost_lte=1000)
                 elif pricing == 'luxury':
                     queryset = queryset.filter(cost__gte=1000)
-                
-                # print("Pricing", queryset)
             else:
                 print("No pricing filter")
 
             # Search the query
-            # queryset = queryset.filter(query).order_by('-votes')[search_limit:search_limit + card_count]
             queryset = queryset.order_by('-votes')[search_limit:search_limit + card_count]
             
             # Serialize the data
