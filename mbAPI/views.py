@@ -107,6 +107,9 @@ class reqRes(APIView):
             else:
                 print("No rating filter")
 
+            '''
+            @Bug These two field are automatically being set to False
+
             # Search if Online order
             order = filters.get("order")
             if order:
@@ -126,7 +129,8 @@ class reqRes(APIView):
                 print("Booking", queryset)
             else:
                 print("No booking filter")
-            
+            '''
+
             pricing = filters.get("pricing")
             # if pricing:
             #     match pricing:
@@ -144,7 +148,7 @@ class reqRes(APIView):
                 elif pricing == 'luxury':
                     queryset = queryset.filter(cost__gte=1000)
                 
-                print("Pricing", queryset)
+                # print("Pricing", queryset)
             else:
                 print("No pricing filter")
 
