@@ -28,6 +28,9 @@ class reqRes(APIView):
             card_count = 9
             search_limit = card_count * (index_value - 1)
             
+            if index_value > 5:
+                return Response([], status=status.HTTP_200_OK)
+
             # Perform a database query
             queryset = Restaurant.objects.order_by('index')[search_limit:search_limit + card_count]
             
