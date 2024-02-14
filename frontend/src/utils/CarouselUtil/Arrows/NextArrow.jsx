@@ -8,7 +8,7 @@ const NextArrow = (props) => {
   return (
     <img className={className}
     style={{ ...style}}
-    onClick={onClick} src={nextIcon} />
+    onClick={onClick} src={nextIcon} alt=''/>
   )
 }
 

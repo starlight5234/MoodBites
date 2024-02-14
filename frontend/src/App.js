@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
-import { createBrowserRouter, RouterProvider, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // pages
 import Home from './Pages/Home/Home';
@@ -16,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" exact element={<Home />} />
                     <Route path="/category/:categoryname" exact element={<ShowListing />} />
+                    <Route path="/demo" exact element={<Demo />} />
                 </Routes>
             </Router>
         </>

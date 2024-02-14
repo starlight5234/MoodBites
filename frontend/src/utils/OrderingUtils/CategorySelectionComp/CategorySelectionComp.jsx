@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import css from './CategorySelectionComp.module.css'
 
-import { orderOnlinePage, diningOutPage, proAndProPlusPage, nightLifePage } from '../../../Data/Constants'
+import { orderOnlinePage, diningOutPage, nightLifePage } from '../../../Data/Constants'
 
 let CategorySelectionComp = ({ imgSrc, imgSrc2, title, color, isActive, setIsActive, comp }) => {
 
@@ -30,7 +29,7 @@ let CategorySelectionComp = ({ imgSrc, imgSrc2, title, color, isActive, setIsAct
     return <div className={outerClass} onClick={changeState}>
         <div className={css.innerDiv}>
             <div className={css.imgBox} style={{ backgroundColor: backgroundColor }}>
-                <img className={css.img} src={isActive[comp] ? imgSrc2 : imgSrc} alt="image" />
+                <img className={css.img} src={isActive[comp] ? imgSrc2 : imgSrc} alt="" />
             </div>
             <div className={css.txtBox}>
                 <div className={titleClass}>{title}</div>

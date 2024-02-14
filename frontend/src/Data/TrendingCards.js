@@ -1,7 +1,4 @@
-import { orderOnlinePage, diningOutPage, proAndProPlusPage, nightLifePage } from './Constants'
-import filtersIcon from '../Assets/icons/filter.png';
-import deliveryTimeIcon from '../Assets/icons/delivery-time.png';
-import downArrowIcon from '../Assets/icons/down-arrow.png';
+import { orderOnlinePage, diningOutPage, nightLifePage } from './Constants'
 
 import biryaniCImg from '../Assets/icons/Food/biryaniC.png';
 import burgerImg from '../Assets/icons/Food/burger.png';
@@ -18,14 +15,6 @@ import kfcImg from '../Assets/icons/Brands/kfc.png';
 import pizzahutImg from '../Assets/icons/Brands/pizzahut.png';
 import scoopsImg from '../Assets/icons/Brands/scoops.png';
 
-import biryaniSCImg from '../Assets/images/Food/biryani.png';
-import biryaniSCImg2 from '../Assets/images/Food/biryani2.png';
-import chapathiImg from '../Assets/images/Food/chapathi.png';
-import chickenSCImg from '../Assets/images/Food/chicken.png';
-import fishImg from '../Assets/images/Food/fish.png';
-import icecreamImg from '../Assets/images/Food/icecream.png';
-import kfcSCImg from '../Assets/images/Food/kfc.png';
-import pizzaSCImg from '../Assets/images/Food/pizza.png';
 const TrendingCards = {
     order_online: {
         title: 'Order Online',

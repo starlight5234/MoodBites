@@ -1,6 +1,5 @@
 import React from 'react'
 import TrendingCard from '../../../Components/Cards/TrendingCard'
-import { Link } from 'react-router-dom'
 import { TrendingCardsArray } from '../../../Data/TrendingCards'
 
 const TrendingNearU = () => {

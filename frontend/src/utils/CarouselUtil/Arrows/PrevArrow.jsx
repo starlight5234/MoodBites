@@ -8,7 +8,7 @@ const PrevArrow = (props) => {
   return (
     <img className={className}
     style={{ ...style}}
-    onClick={onClick} src={prevIcon} />
+    onClick={onClick} src={prevIcon} alt=''/>
   )
 }
 
