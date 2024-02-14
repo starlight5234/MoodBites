@@ -1,5 +1,4 @@
 import React from 'react'
-import css from './Collection.module.css'
 
 import { CollectionCardsArray } from '../../../Data/TrendingCards'
 import CollectionCard from '../../../Components/Cards/CollectionCard/CollectionCard'

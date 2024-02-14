@@ -1,12 +1,11 @@
 import css from './CircleCard2.module.css'
 
-import biryaniC from '../../../../Assets/icons/biryaniC.png'
 
 let CircleCard2 = ({ imgSrc, name, time }) => {
     return <div className={css.outerDiv}>
         <div className={css.innerDiv}>
             <div className={css.imgDiv}>
-                <img className={css.img} src={imgSrc} alt="food image" />
+                <img className={css.img} src={imgSrc} alt="food" />
             </div>
             <div className={css.txtBox}>
                 <div className={css.title}>{name}</div>
