@@ -115,7 +115,7 @@ class reqRes(APIView):
                 print("No pricing filter")
 
             # Search the query
-            queryset = queryset.order_by('-votes')[search_limit:search_limit + card_count]
+            queryset = queryset.order_by('-is_recommended', '-votes')[search_limit:search_limit + card_count]
             
             # Serialize the data
             serializer = RestaurantRequestSerializer(queryset, many=True)
