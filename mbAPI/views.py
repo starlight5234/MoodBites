@@ -56,7 +56,14 @@ class reqRes(APIView):
             queryset = Restaurant.objects.all()
             query = Q()
             filters = request.data.get("filters", {})
-            
+
+            # Search for city
+            city = filters.get("city")
+            if city:
+                queryset = queryset.filter(city__icontains=city)
+            else:
+                return Response({"error": "Default filter 'city' not provided"}, status=status.HTTP_400_BAD_REQUEST)
+
             # Search for category
             category = filters.get("category")
 
@@ -88,13 +95,6 @@ class reqRes(APIView):
                 print("Category", queryset)
             else:
                 print("No category(type) filter")
-
-            # Search for city
-            city = filters.get("city")
-            if city:
-                queryset = queryset.filter(city__icontains=city)
-            else:
-                print("No city filter")
             
             # Search for rating
             rating = filters.get("rating")
