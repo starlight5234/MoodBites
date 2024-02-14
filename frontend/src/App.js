@@ -16,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" exact element={<Home />} />
                     <Route path="/category/:categoryname" exact element={<ShowListing />} />
+                    <Route path="/demo" exact element={<Demo />} />
                 </Routes>
             </Router>
         </>

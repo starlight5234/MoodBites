@@ -110,15 +110,24 @@
 }
 
 .ratingBox {
+    display: flex;
+    text-align: center;
+    align-items: center ;
+    justify-content: center;
+    /* width: 60px; */
+    height: 30px;
+    align-items: center;
     color: var(--color-white);
     font-size: 0.9rem;
     font-weight: 600;
+    margin-left: 5px;
     background-color: var(--bg-greenish);
     border-radius: 5px;
-    padding: 1px 4px;
+    padding: 2px 4px;
 }
 
 .star {
+    padding-left: 2px;
     width: 10px;
     height: 10px;
     color: var(--color-white);

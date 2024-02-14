@@ -1,4 +1,4 @@
-const endpoint = 'https://84550f94-4588-4a98-8dfb-92d5f0cc6260.mock.pstmn.io'
+const endpoint = 'https://peaceful-sea-41643.pktriot.net'
 
-export const homeroute = `${endpoint}/home`;
+export const homeroute = `${endpoint}/reqRes`;
 
