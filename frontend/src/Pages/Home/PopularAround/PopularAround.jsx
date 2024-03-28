@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import css from './PopularAround.module.css'
+import HomepageCard from '../../../utils/Cards/HomepageCard';
 import MainCard from '../../../Components/Cards/MainCard/MainCard';
+import axios from 'axios';
+import { mainRoute } from '../../../Http';
+
 
 const PopularAround = () => {
 
+
+    const [refresh, setRefresh] = useState(false)
+    const [showSkeleton, setShowSkeleton] = useState(true)
+    const [listings, setListings] = useState([])
+
+    useEffect(() => {
+
+        const fetchdata = async () => {
+            const response = await axios.get(mainRoute, data)
+            if (response.status === 200) {
+                if (response.data.length == 0) {
+                    setShowSkeleton(false)
+                }
+                const uniqueItems = new Set([...listings, ...response.data]);
+                setListings(Array.from(uniqueItems));
+            }
+        }
+
+        fetchdata();
+    }, [refresh])
 
     const data = {
         "index": 0,
@@ -34,10 +58,14 @@ const PopularAround = () => {
                     </div>
                     <div className={css.innerDiv6}>
                         <div className={css.w7}>
-                            <div className={css.innerDiv6Body}>
-                                <MainCard data={data} />
-                                <MainCard data={data} />
-                                <MainCard data={data} />
+                            <div className={`${css.innerDiv6Body}`}>
+                                {
+                                    listings.map((data) => (
+                                        <HomepageCard data={data} />
+                                    ))
+                                }
+                                {/* <HomepageCard data={data} />
+                                <HomepageCard data={data} /> */}
                             </div>
                         </div>
                     </div>

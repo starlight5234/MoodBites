@@ -1,4 +1,5 @@
-const endpoint = 'https://peaceful-sea-41643.pktriot.net'
+const endpoint = 'https://vigorous-night-03557.pktriot.net'
 
 export const homeroute = `${endpoint}/reqRes`;
+export const mainRoute = `${endpoint}/home`;
 
