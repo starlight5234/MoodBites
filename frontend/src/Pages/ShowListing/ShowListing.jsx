@@ -38,7 +38,7 @@ const ShowListing = () => {
     const [listings, setListings] = useState([])
     const [index, setIndex] = useState(1)
     const [search, setSearch] = useState(null)
-    const [city, setCity] = useState(null)
+    const [city, setCity] = useState('Banashankari')
     const [rate, setRate] = useState(null)
     const [pricing, setPricing] = useState(null)
     const [sort, setSort] = useState(null)
@@ -132,7 +132,7 @@ const ShowListing = () => {
 
     const clearAll = () => {
         setSelectedOption('')
-        setRating(1)
+        setRating(null)
         setSelectedCost('')
     }
 
@@ -140,11 +140,19 @@ const ShowListing = () => {
         setSort(selectedOption)
         setRate(rating)
         setPricing(selectedCost)
+        scrollToTop()
+        setIndex(1)
         setRefresh(!refresh)
         setListings([])
         setShowFilterModal(!showFilterModal)
     }
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // You can use 'auto' for instant scrolling
+        })
+    }
     return (
         <div>
             <NavigationBar2 />
