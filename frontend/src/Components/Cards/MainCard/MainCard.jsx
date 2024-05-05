@@ -11,20 +11,10 @@ const MainCard = ({ data }) => {
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [showTooltip, setShowTooltip] = useState(false);
 
-    // const [tags, setTags] = useState(
-    //     [
-    //         { name: 'Quality', colour: 'green' },
-    //         { name: "Food", colour: 'red' },
-    //         { name: "Girls", colour: 'yellow' },
-    //         { name: "Boys", colour: 'gray' },
-    //         { name: "Washroom", colour: 'green' },
-    //         { name: "Ambience", colour: 'red' },
-    //         { name: 'Quantity', colour: 'green' },
-    //         { name: "chicken", colour: 'red' },
-    //         { name: "bad", colour: 'yellow' },
-    //         { name: "delivery", colour: 'gray' },
-    //     ]
-    // )
+    // const tagsArray = JSON.parse(tags)
+    const tagsString = tags.replace(/'/g, '"');
+    const tagsArray = JSON.parse(tagsString);
+    console.log(tagsArray)
 
     const handleMouseMove = (e) => {
         setTooltipPosition({ x: e.clientX, y: e.clientY });
@@ -73,13 +63,13 @@ const MainCard = ({ data }) => {
                     )
                 }
                 {showTooltip && (
-                    <div className="absolute z-20 left-1 top-1">
+                    <div className="absolute left-1 top-1">
                         {/* White background with opacity */}
-                        <div className="w-10/12 bg-white bg-opacity-0 p-2 rounded-md shadow-lg">
+                        <div className="w-10/12 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 p-2 rounded-md shadow-lg">
                             {/* Badges */}
-                            <span className="z-20 text-xs text-black flex flex-wrap align-middle items-center">
-                                {tags && tags.map((tag, index) => (
-                                    <span key={index} className={`bg-${tag.colour}-100 text-${tag.colour}-800 text-xs font-medium me-2 my-1 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 opacity-100`}>{tag.name}</span>
+                            <span className="text-xs text-black flex flex-wrap align-middle items-center">
+                                {tags && tagsArray.slice(0, 10).map((tag, index) => (
+                                    <span key={index} className={`bg-${tag.colour}-300 text-${tag.colour}-800 text-xs font-medium me-2 my-1 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 opacity-100`}>{tag.name}</span>
                                 ))}
                             </span>
                         </div>
