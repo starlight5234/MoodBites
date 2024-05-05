@@ -31,7 +31,8 @@ const ShowListing = () => {
         nightlife: page === nightLifePage
     });
 
-    console.log(isActive)
+    // const [prevCateg]
+    // console.log(isActive)
 
     const [refresh, setRefresh] = useState(false)
     const [showSkeleton, setShowSkeleton] = useState(true)
@@ -55,6 +56,11 @@ const ShowListing = () => {
     }
 
     useEffect(() => {
+        setListings([])
+        setIndex(1)
+    }, [categoryname])
+
+    useEffect(() => {
 
         const fetchdata = async () => {
             const response = await axios.post(homeroute, data)
@@ -65,6 +71,7 @@ const ShowListing = () => {
                 const uniqueItems = new Set([...listings, ...response.data]);
                 setListings(Array.from(uniqueItems));
             }
+
         }
 
         fetchdata();
@@ -170,7 +177,7 @@ const ShowListing = () => {
                     </button>
                 </div>
             </div>
-            <div className={css.innerDiv4}>
+            {/* <div className={css.innerDiv4}>
                 <div className={css.w7}>
                     <div className={css.innerDiv4Title}>
                         Inspiration for your first order
@@ -201,12 +208,30 @@ const ShowListing = () => {
                         </CarouselUtil>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className={css.innerDiv6}>
                 <div className={css.w7}>
                     <div className={css.innerDiv6Title}>
-                        Delivery Restaurants in Gachibowli</div>
+                        {
+                            categoryname == 'dineout'
+                                ?
+                                <span className='mr-2'>Dining</span>
+                                :
+                                categoryname == 'delivery'
+                                    ?
+                                    <span className='mr-2'>Delivery</span>
+                                    :
+                                    categoryname == 'nightlife'
+                                        ?
+                                        <span className='mr-2'>Nightlife</span>
+                                        :
+                                        <></>
+
+
+                        }
+                        Restaurants recommended by Moodbites
+                    </div>
                     <div className={css.innerDiv6Body}>
                         {listings?.map((item) => {
                             return <MainCard key={item.index} data={item} />
