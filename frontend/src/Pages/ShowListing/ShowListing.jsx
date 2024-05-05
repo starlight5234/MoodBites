@@ -38,7 +38,6 @@ const ShowListing = () => {
     const [listings, setListings] = useState([])
     const [index, setIndex] = useState(1)
     const [search, setSearch] = useState(null)
-    const [city, setCity] = useState('Banashankari')
     const [rate, setRate] = useState(null)
     const [pricing, setPricing] = useState(null)
     const [sort, setSort] = useState(null)
@@ -47,7 +46,7 @@ const ShowListing = () => {
         filters: {
             category: categoryname,
             sort: sort,
-            city: city,
+            // city: city,
             rating: rate,
             pricing: pricing
         },

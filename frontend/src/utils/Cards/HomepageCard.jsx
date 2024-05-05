@@ -7,8 +7,6 @@ const HomepageCard = ({ data }) => {
 
     return (
         <Link to={url} className='mx-5 my-2 '>
-
-
             <div class="w-60 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name.length > 12 ? name.substring(0, 12) + '...' : name}</h5>
@@ -31,15 +29,6 @@ const HomepageCard = ({ data }) => {
                     </svg>
                 </a>
             </div>
-
-            {/* <div className=" my-3 flex w-80 md:w-72  border border-2 dark:border-0 rounded-xl space-x-2 items-center align-middle bg-white dark:bg-[#454545] hover:bg-[#C0A04C] hover:text-white cursor-pointer drop-shadow-2xl">
-                <div className="text-left">
-                    <div className="text-xs font-medium">{name}</div>
-                    <p className='text-xs font-medium'>{rest_type || ""}</p>
-                    <div className="text-xss font-light">{rate} </div>
-                    <div className="text-xss font-light">{cost}</div>
-                </div>
-            </div> */}
         </Link>
     )
 }
