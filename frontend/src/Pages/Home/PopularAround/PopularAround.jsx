@@ -16,7 +16,7 @@ const PopularAround = () => {
     useEffect(() => {
 
         const fetchdata = async () => {
-            const response = await axios.get(mainRoute, data)
+            const response = await axios.get(mainRoute)
             if (response.status === 200) {
                 if (response.data.length == 0) {
                     setShowSkeleton(false)
@@ -28,24 +28,6 @@ const PopularAround = () => {
 
         fetchdata();
     }, [refresh])
-
-    const data = {
-        "index": 0,
-        "url": "https://www.zomato.com/bangalore/jalsa-banashankari?context=eyJzZSI6eyJlIjpbNTg2OTQsIjE4Mzc1NDc0IiwiNTkwOTAiLCIxODM4Mjk0NCIsIjE4MjI0Njc2IiwiNTkyODkiLCIxODM3MzM4NiJdLCJ0IjoiUmVzdGF1cmFudHMgaW4gQmFuYXNoYW5rYXJpIHNlcnZpbmcgQnVmZmV0In19",
-        "name": "Jalsa",
-        "online_order": false,
-        "book_table": false,
-        "rate": 4.1,
-        "votes": 775,
-        "location": "Banashankari",
-        "rest_type": "Casual Dining",
-        "dish_liked": "Pasta, Lunch Buffet, Masala Papad, Paneer Lajawab, Tomato Shorba, Dum Biryani, Sweet Corn Soup",
-        "cuisines": "North Indian, Mughlai, Chinese",
-        "cost": 800,
-        "type": "Buffet",
-        "city": "Banashankari",
-        "is_recommended": false
-    }
 
     return (
         <>
@@ -64,8 +46,6 @@ const PopularAround = () => {
                                         <HomepageCard data={data} />
                                     ))
                                 }
-                                {/* <HomepageCard data={data} />
-                                <HomepageCard data={data} /> */}
                             </div>
                         </div>
                     </div>
