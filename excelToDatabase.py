@@ -61,7 +61,8 @@ mbAPI_restaurant = Table(
     Column('cuisines', String),
     Column('cost', Integer, default=0),
     Column('type', String),
-    Column('city', String)
+    Column('city', String),
+    Column('is_recommended', Boolean)
 )
 metadata.create_all(db_engine)
 
@@ -71,6 +72,7 @@ metadata.create_all(db_engine)
 max_index = 1
 
 for file_name in excel_files:
+    print(file_name)
     excel_data = pd.read_excel(file_name)
     
     # Convert boolean columns to strings
@@ -85,6 +87,9 @@ for file_name in excel_files:
 
     # Assign unique index values to the DataFrame
     excel_data['index'] = range(max_index, max_index + len(excel_data))
+
+    excel_data['cost'].fillna(False, inplace=True)
+    # excel_data['is_recommended'] = False
 
     # Increment max_index by len(excel_data) to ensure unique index values for each iteration
     max_index += len(excel_data)
