@@ -7,7 +7,6 @@ const HomepageCard = ({ data }) => {
 
     return (
         <Link to={url} className='mx-5 my-2 '>
-
             <div class="w-60 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{name.length > 12 ? name.substring(0, 12) + '...' : name}</h5>
