@@ -276,7 +276,7 @@ const ShowListing = () => {
                                     </button>
                                     <button onClick={() => setActiveComponent(2)} className={`w-full px-2 py-4 text-lg ${activeComponent == 2 ? 'bg-white' : 'bg-slate-100'}`}>
                                         <span className='text-xl font-medium'>
-                                            Cuisins
+                                            Cuisines
                                         </span>
                                     </button>
                                     <button onClick={() => setActiveComponent(3)} className={`w-full px-2 py-4 text-lg ${activeComponent == 3 ? 'bg-white' : 'bg-slate-100'}`}>

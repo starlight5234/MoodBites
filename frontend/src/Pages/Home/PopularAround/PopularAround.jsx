@@ -35,7 +35,7 @@ const PopularAround = () => {
                 <section className='w-full md:w-full sm:mx-5 px-10'>
                     <div className='flex justify-between align-middle '>
                         <div className="left flex items-center align-middle ">
-                            <span className='text-xl font-bold md:text-2xl md:font-[700]'>Popular localities in and around Banglore</span>
+                            <span className='text-xl font-bold md:text-2xl md:font-[700]'>Popular localities in and around Bangalore</span>
                         </div>
                     </div>
                     <div className={css.innerDiv6}>

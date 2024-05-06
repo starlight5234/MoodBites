@@ -69,7 +69,7 @@ const MainCard = ({ data }) => {
                             {/* Badges */}
                             <span className="text-xs text-black flex flex-wrap align-middle items-center">
                                 {tags && tagsArray.slice(0, 10).map((tag, index) => (
-                                    <span key={index} className={`bg-${tag.colour}-300 text-${tag.colour}-800 text-xs font-medium me-2 my-1 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 opacity-100`}>{tag.name}</span>
+                                    <span key={index} className={`!important bg-${tag.colour}-300 text-${tag.colour}-800 text-xs font-medium me-2 my-1 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 opacity-100`}>{tag.name}</span>
                                 ))}
                             </span>
                         </div>
@@ -78,7 +78,7 @@ const MainCard = ({ data }) => {
                 {
                     is_recommended && (
                         <div className='absolute -top-3 -right-3 rounded-full bg-white pt-2 pr-2'>
-                            <img className='' width="45" height="45" src="https://img.icons8.com/bubbles/100/facebook-like.png" alt="facebook-like" />
+                            <img className='' width="45" height="45" src="https://img.icons8.com/bubbles/100/facebook-like.png" alt="liked-by-people" />
                         </div>
                     )
                 }
